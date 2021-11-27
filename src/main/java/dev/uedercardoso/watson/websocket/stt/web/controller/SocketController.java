@@ -8,6 +8,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -32,13 +33,16 @@ public class SocketController {
     
     @Autowired
     private ResourceLoader resourceLoader;
+    
+    @Value("classpath:8TzgE5KgzVXVRElsLSwd.flac")
+    private Resource fileResource;
 
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
     @GetMapping("/media")
     public ResponseEntity<List<String>> sendMessage() throws Exception {
         
-    	final Resource fileResource = resourceLoader.getResource("classpath:8TzgE5KgzVXVRElsLSwd.flac");
+    	//final Resource fileResource //resourceLoader.getResource("classpath:8TzgE5KgzVXVRElsLSwd.flac");
     	
     	File audio;
     	
