@@ -113,7 +113,7 @@ public class WatsonService {
 					speechToText.setServiceUrl(SERVICE_URL);
 					
 					RecognizeOptions recognizeOptions = new RecognizeOptions.Builder()
-					    .audio(new FileInputStream(audio.getAbsolutePath()))
+					    .audio(audio)
 					    .contentType(HttpMediaType.AUDIO_FLAC)
 					    .model("en-US_BroadbandModel")
 					    .wordAlternativesThreshold((float) 0.9)
