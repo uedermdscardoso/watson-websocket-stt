@@ -50,7 +50,8 @@ public class SocketController {
 			return ResponseEntity.ok(messages);
 			
 		} catch (IOException e) {
-			return ResponseEntity.badRequest().build();
+			throw new Exception(e);
+			//return ResponseEntity.badRequest().build();
 		} catch(Exception e) {
 			throw new Exception(e);
 			//return ResponseEntity.badRequest().build();	
