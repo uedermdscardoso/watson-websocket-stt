@@ -73,7 +73,7 @@ public class WatsonService {
 		}
 	}
 	
-	public List<String> recognizeAudio(File audio) throws Exception {
+	public List<String> recognizeAudio(InputStream audio) throws Exception {
 		
 		List<String> messages = new LinkedList<String>();
 	  	
@@ -94,7 +94,7 @@ public class WatsonService {
 					headers.put("Authorization", "Bearer "+bearerToken);
 					headers.put("Content-Type", "audio/flac");
 					headers.put("Cache-Control", "no-cache");
-					headers.put("Content-Length", String.valueOf(audio.length()));
+					//headers.put("Content-Length", String.valueOf(audio.length()));
 					headers.put("Accept", "*/*");
 					headers.put("Accept-Encoding", "gzip, deflate, br");
 					headers.put("Connection", "keep-alive");

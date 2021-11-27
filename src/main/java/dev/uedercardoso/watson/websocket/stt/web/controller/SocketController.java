@@ -17,7 +17,11 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import dev.uedercardoso.watson.websocket.stt.web.services.WatsonService;
 
@@ -33,23 +37,15 @@ public class SocketController {
     
     @Autowired
     private ResourceLoader resourceLoader;
-    
-    @Value("classpath:8TzgE5KgzVXVRElsLSwd.flac")
-    private Resource fileResource;
 
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
-    @GetMapping("/media")
-    public ResponseEntity<List<String>> sendMessage() throws Exception {
+    @PostMapping("/media")
+    public ResponseEntity<List<String>> sendMessage(@RequestParam MultipartFile audio) throws Exception {
         
-    	//final Resource fileResource //resourceLoader.getResource("classpath:8TzgE5KgzVXVRElsLSwd.flac");
-    	
-    	File audio;
-    	
 		try {
-			audio = fileResource.getFile();
-	    	
-			List<String> messages = watsonService.recognizeAudio(audio);
+			
+			List<String> messages = watsonService.recognizeAudio(audio.getInputStream());
 		
 			return ResponseEntity.ok(messages);
 			
