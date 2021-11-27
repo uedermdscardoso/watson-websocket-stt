@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.uedercardoso</groupId>
+  <artifactId>watson-websocket-stt</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>websocket-stt</name>
+  <description>IBM Watson - Websocket e Speech To Text</description>
+  
+  <developers>
+    <developer>
+      <name>Ueder Cardoso</name>
+      <email>ueder.cardosoinfo@gmail.com</email>
+      <organization>Ueder Cardoso</organization>
+      <organizationUrl>https://www.uedercardoso.dev</organizationUrl>
+    </developer>
+  </developers>
+  
+  <parent>
+	 <groupId>org.springframework.boot</groupId>
+	 <artifactId>spring-boot-starter-parent</artifactId>
+	 <version>2.5.6</version>
+  </parent>  
+  
+  <dependencies>
+   <dependency>
+	  	<groupId>org.springframework.boot</groupId>
+	  	<artifactId>spring-boot-starter-web</artifactId>
+  	</dependency>
+  	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-tomcat</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-websocket</artifactId>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.squareup.okhttp3</groupId>
+	    <artifactId>okhttp-urlconnection</artifactId>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpclient</artifactId>
+	    <version>4.5.13</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>com.ibm.watson</groupId>
+	  <artifactId>ibm-watson</artifactId>
+	  <version>9.3.0</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>io.socket</groupId>
+	    <artifactId>socket.io-client</artifactId>
+	    <version>2.0.1</version>
+	</dependency>
+	
+	<!-- Swagger-->
+	<dependency>
+	    <groupId>io.springfox</groupId>
+	    <artifactId>springfox-swagger2</artifactId>
+	    <version>2.9.2</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>io.springfox</groupId>
+	    <artifactId>springfox-swagger-ui</artifactId>
+	    <version>2.9.2</version>
+	</dependency>
+  </dependencies>
+  
+  <properties>
+	 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	 <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	 <java.version>1.8</java.version>
+     <start-class>dev.uedercardoso.watson.websocket.stt.WatsonApplication</start-class>
+  </properties> 
+  
+  <build>
+  	<finalName>watson-websocket-stt</finalName>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <executable>true</executable>
+                <jvmArguments>--add-opens java.base/java.lang=ALL-UNNAMED</jvmArguments>
+            </configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>
