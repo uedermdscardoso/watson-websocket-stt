@@ -52,9 +52,9 @@
 	<dependency>
 	  <groupId>com.ibm.watson</groupId>
 	  <artifactId>ibm-watson</artifactId>
-	  <version>9.3.0</version>
+	  <version>8.6.0</version>
 	</dependency>
-	
+
 	<dependency>
 	    <groupId>io.socket</groupId>
 	    <artifactId>socket.io-client</artifactId>
