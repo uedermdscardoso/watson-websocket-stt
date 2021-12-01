@@ -47,6 +47,11 @@ public class SocketController {
 
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
+    @GetMapping("/ok")
+    public ResponseEntity<String> teste() {
+    	return ResponseEntity.ok("CERTO");
+    }
+    
     @PostMapping("/media/{language}")
     public ResponseEntity<List<SpeechRecognitionAlternative>> sendMessage(@PathVariable String language, @RequestParam MultipartFile audio) throws Exception {
         
